@@ -1,6 +1,6 @@
 /*
 
-Implementing the main Chess struct for running the game.
+Implementing the main Chess struct.
 
 */
 
