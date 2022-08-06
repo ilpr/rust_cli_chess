@@ -1,0 +1,16 @@
+[package]
+name = "rust_cli_chess"
+description = "CLI chess game for two players written in Rust."
+version = "0.1.0"
+authors = ["ilpr <ilppo.raes@gmail.com>"]
+edition = "2021"
+
+[lib]
+name = "cli_chess"
+path = "src/lib.rs"
+
+[[bin]]
+name = "run_cli_chess"
+path = "src/bin/main.rs"
+
+[dependencies]
