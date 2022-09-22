@@ -1,14 +1,9 @@
-/*
-
-Implementing displays for Chess, Piece and Player
-
-*/
-
 use std::fmt;
 use crate::{
     chess::Chess,
     piece::Piece,
-    player::Player
+    player::Player,
+    error::ChessError
 };
 
 impl fmt::Display for Chess {
@@ -76,6 +71,23 @@ impl fmt::Display for Player {
         match self {
             Player::White => write!(f, "White"),
             Player::Black => write!(f, "Black"),
+        }
+    }
+}
+
+impl fmt::Display for ChessError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            ChessError::UnableToParseInput => write!(f, "Can't understand input."),
+            ChessError::PieceBelongsToOpponent => write!(f, "That is opponent's piece."),
+            ChessError::NotAllowedMove => write!(f, "Not an allowed move."),
+            ChessError::NotAllowedMoveInCheck => write!(f, "Not an allowed move; you are in a check."),
+            ChessError::EmptyTile => write!(f, "Empty tile chosen."),
+            ChessError::InvalidDestination => write!(f, "Can't move there."),
+            ChessError::PathIsBlocked => write!(f, "Can't move there; path is blocked."),
+            ChessError::KingCompromised => write!(f, "Can't move that piece; your king would compromised."),
+            ChessError::CastlingMoveUnavailable => write!(f, "Castling move is no longer available."),
+            ChessError::CastlingPathIsCompromised => write!(f, "Castling is prevented by opponent's piece.")
         }
     }
 }
