@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "rust_cli_chess"
+name = "cli_chess"
 version = "0.1.0"
